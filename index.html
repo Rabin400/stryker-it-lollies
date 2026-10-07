@@ -552,10 +552,9 @@ const ADMIN_PIN = "1234";
 ================================================== */
 
 let questions =
-    JSON.parse(
-        null
-    ) || [
-
+JSON.parse(
+localStorage.getItem("itQuizQuestions")
+) || [
     {
         question: "What does CPU stand for?",
         answers: [
@@ -586,9 +585,12 @@ let questions =
 ================================================== */
 
 function saveQuestions() {
-
-    // Persistence is disabled because SharePoint previews run in a sandbox without localStorage.
-
+ 
+localStorage.setItem(
+"itQuizQuestions",
+JSON.stringify(questions)
+);
+ 
 }
 
 
